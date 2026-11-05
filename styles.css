@@ -1,0 +1,272 @@
+/* ==========================================================================
+   The AI Line: styles
+   1. Tokens   2. Base   3. Masthead   4. Controls   5. Map poster
+   6. Station tickets   7. Sources and notes   8. Responsive   9. Motion
+   ========================================================================== */
+
+/* 1. TOKENS ---------------------------------------------------------------- */
+:root {
+  color-scheme: light;
+  --page: #F3F5F9;
+  --ink: #14202F;
+  --muted: #4C5A6E;
+  --card: #FFFFFF;
+  --rule: #CBD3DF;
+  --focus: #14202F;
+
+  /* line colours (all meet 3:1 on the cream poster and 4.5:1 with white text) */
+  --l1: #1A5FCF; --l2: #0A8556; --l3: #C2410C; --l4: #7345D6;
+  --amber: #FFC83D;
+  --poster: #FBF8F0;
+
+  --display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --body: "Atkinson Hyperlegible", system-ui, sans-serif;
+}
+
+/* 2. BASE ------------------------------------------------------------------ */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 18px/1.55 var(--body); }
+a { color: var(--l1); text-underline-offset: 3px; }
+button, summary { font: inherit; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.skip-link { position: absolute; z-index: 50; top: 8px; left: 8px; padding: 10px 14px; background: var(--card); transform: translateY(-160%); }
+.skip-link:focus { transform: none; }
+h1, h2, h3, h4 { font-family: var(--display); font-weight: 700; margin: 0; }
+main, .masthead { width: min(1480px, 100% - 56px); margin-inline: auto; }
+
+/* Tags: a shape AND a word, never colour alone */
+.tag { display: inline-flex; align-items: center; gap: 6px; padding: 1px 8px 1px 7px; border: 1.5px solid currentColor; border-radius: 999px; font: 700 .76rem/1.4 var(--body); white-space: nowrap; vertical-align: 2px; background: #fff; }
+.tag i { width: 8px; height: 8px; background: currentColor; display: inline-block; }
+.tag.fact { color: var(--l1); } .tag.fact i { border-radius: 50%; }
+.tag.view { color: var(--l4); } .tag.view i { transform: rotate(45deg) scale(.82); }
+.tag.pred { color: var(--l3); } .tag.pred i { clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.ref { font-weight: 700; font-size: .82em; white-space: nowrap; }
+
+/* 3. MASTHEAD -------------------------------------------------------------- */
+.masthead { padding: clamp(28px, 4vw, 52px) 0 20px; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 36px; align-items: end; }
+.route-divider { width: min(1480px, 100% - 56px); margin: 2px auto 6px; }
+.flourish { display: block; width: 100%; height: auto; }
+.fl { fill: none; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+.fl.l1 { stroke: var(--l1); } .fl.l2 { stroke: var(--l2); } .fl.l3 { stroke: var(--l3); } .fl.l4 { stroke: var(--l4); stroke-dasharray: 18 11; stroke-linecap: butt; }
+.fl-end { fill: #fff; stroke-width: 5; }
+.fl-end.l1 { stroke: var(--l1); } .fl-end.l2 { stroke: var(--l2); } .fl-end.l3 { stroke: var(--l3); } .fl-end.l4 { stroke: var(--l4); }
+.brand { display: flex; align-items: center; gap: clamp(14px, 2vw, 28px); }
+.roundel { width: clamp(78px, 9vw, 132px); flex: none; }
+.r-ring { fill: none; stroke: var(--l1); stroke-width: 15; }
+.r-bar { fill: var(--ink); }
+.roundel text { fill: #fff; font: 800 21px var(--display); letter-spacing: .04em; }
+h1 { font-weight: 800; font-size: clamp(3.4rem, 9.5vw, 8.6rem); line-height: .86; letter-spacing: -.01em; }
+.subtitle { margin: 12px 0 0; font-size: clamp(1rem, 1.5vw, 1.2rem); max-width: 34ch; color: var(--muted); }
+.intro { margin: 0; max-width: 56ch; font-size: 1.05rem; }
+
+/* 4. CONTROLS -------------------------------------------------------------- */
+.map-section { margin-top: 8px; }
+.map-head { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-bottom: 12px; }
+.map-title { margin-right: auto; }
+.map-head h2 { font-size: 2.1rem; }
+.map-note { display: flex; align-items: center; gap: 10px; margin: 2px 0 0; color: var(--muted); font-size: .98rem; }
+.link-key { flex: none; width: 34px; height: 18px; border-radius: 9px; background: #fff; border: 3px solid var(--ink); }
+.trips { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.trips-label { font: 700 1.25rem var(--display); margin-right: 4px; color: var(--muted); }
+.trip-btn, .next-btn { min-height: 44px; cursor: pointer; border-radius: 999px; border: 2px solid var(--ink); background: var(--card); color: var(--ink); padding: 8px 18px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; transition: transform .12s, background .12s; }
+.trip-btn:hover, .next-btn:hover { background: var(--ink); color: #fff; }
+.trip-btn[aria-pressed="true"] { background: var(--amber); color: var(--ink); box-shadow: 0 3px 0 var(--ink); transform: translateY(-2px); }
+.trip-btn::before { content: ""; width: 0; height: 0; border-left: 9px solid currentColor; border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+.trip-btn[aria-pressed="true"]::before { width: 10px; height: 10px; border: 0; background: currentColor; }
+
+/* In-train style "now / next" sign */
+.board { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin: 0 0 14px; padding: 8px 20px 6px; background: var(--card); border: 3px solid var(--ink); border-radius: 12px; font: 700 1.9rem/1.15 var(--display); letter-spacing: .02em; border-left: 14px solid var(--board-line, var(--l1)); text-transform: uppercase; }
+.board-k { color: var(--muted); font-size: 1.15rem; }
+.board-v { min-width: 8ch; }
+
+/* 5. MAP POSTER ------------------------------------------------------------ */
+.map-layout { display: grid; grid-template-columns: minmax(0, 1fr) 390px; gap: 22px; align-items: start; }
+.poster { position: relative; border-radius: 22px; overflow: hidden; border: 3px solid var(--ink); background: var(--poster); box-shadow: 0 6px 0 var(--ink); }
+.metro-map { display: block; width: 100%; height: auto; }
+.poster-bg { fill: var(--poster); }
+.grid-dot { fill: #E2DCCB; }
+.zone.z0 { fill: rgba(255, 200, 61, .13); } .zone.z1 { fill: rgba(26, 95, 207, .06); } .zone.z2 { fill: rgba(10, 133, 86, .08); } .zone.z3 { fill: rgba(115, 69, 214, .07); }
+.zone-label { fill: var(--muted); font: 700 17px var(--display); letter-spacing: .22em; text-transform: uppercase; }
+
+.track path { fill: none; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round; transition: stroke-width .15s; }
+.t1 path { stroke: var(--l1); }
+.t2 path { stroke: var(--l2); } .t2 .marks { stroke: var(--poster); stroke-width: 3; stroke-dasharray: 1 13; }
+.t3 path { stroke: var(--l3); } .t3 .marks { stroke: var(--poster); stroke-width: 15; stroke-dasharray: 2 20; stroke-linecap: butt; opacity: .7; }
+.t4 path { stroke: var(--l4); stroke-dasharray: 22 12; stroke-linecap: butt; }
+.track.is-active path:not(.marks):not(.end-tick) { stroke-width: 20; }
+.track .end-tick { stroke: var(--ink); stroke-width: 7; stroke-linecap: round; }
+.hz-a { fill: var(--amber); } .hz-b { fill: var(--ink); }
+.barrier { stroke: var(--ink); stroke-width: 2; }
+
+/* interchange capsules: outlined white pills joining the stacked stations */
+.cap-out, .cap-in { fill: none; stroke-linecap: round; }
+.cap-out { stroke: var(--ink); stroke-width: 38; }
+.cap-in { stroke: #fff; stroke-width: 30; }
+.capsule.is-hot .cap-in { stroke: var(--amber); }
+.walkway-demo { fill: #fff; stroke: var(--ink); stroke-width: 3; }
+.legend text { fill: var(--muted); font: 700 15px var(--body); }
+
+/* the amber route that "Take a trip" draws */
+.journey { fill: none; stroke: var(--amber); stroke-width: 34; stroke-linecap: round; stroke-linejoin: round; opacity: 0; stroke-dasharray: 1; stroke-dashoffset: 1; pointer-events: none; }
+.journey.on { opacity: .95; stroke-dashoffset: 0; transition: stroke-dashoffset var(--trip-time, 1.2s) ease-out, opacity .3s; }
+
+.pill { cursor: pointer; transition: opacity .2s; }
+.pill rect { fill: #fff; stroke: currentColor; stroke-width: 3; }
+.pill .glyph { fill: currentColor; }
+.pill text { fill: var(--ink); font: 700 21px var(--display); }
+.pill.p1 { color: var(--l1); } .pill.p2 { color: var(--l2); } .pill.p3 { color: var(--l3); } .pill.p4 { color: var(--l4); }
+.pill:hover rect { fill: #F1EBDA; }
+.pill:focus { outline: none; } .pill:focus rect { stroke: var(--ink); stroke-width: 4; }
+.pill[aria-pressed="true"] rect { fill: currentColor; }
+.pill[aria-pressed="true"] text, .pill[aria-pressed="true"] .glyph { fill: #fff; }
+
+.stn { cursor: pointer; transition: opacity .2s; }
+.stn .hit { fill: transparent; }
+.stn .ring { fill: #fff; stroke: var(--ink); stroke-width: 5; transition: r .15s; }
+.stn .dot { stroke: #fff; stroke-width: 3; }
+.stn .dot.l1 { fill: var(--l1); } .stn .dot.l2 { fill: var(--l2); } .stn .dot.l3 { fill: var(--l3); } .stn .dot.l4 { fill: var(--l4); }
+.stn text { fill: var(--ink); font: 700 26px var(--display); paint-order: stroke; stroke: var(--poster); stroke-width: 8px; stroke-linejoin: round; }
+.stn:hover .ring, .stn:focus .ring { r: 17; }
+.stn:focus { outline: none; }
+.stn:focus .ring { stroke-width: 7; }
+.stn:focus .dot { stroke: var(--ink); stroke-width: 4; }
+.stn.is-selected .ring { fill: var(--amber); r: 17; }
+.stn.is-selected .dot { stroke: var(--ink); stroke-width: 4; }
+.stn.is-selected text { stroke: var(--amber); stroke-width: 11px; }
+.stn.is-partner text { stroke: #FFE9A8; stroke-width: 11px; }
+.metro-map.is-filtered .dim { opacity: .2; }
+.metro-map.is-hover .soft { opacity: .35; }
+
+.train-marker { transition: transform 1.2s cubic-bezier(.55, 0, .35, 1); }
+.train-body { transform-box: fill-box; transform-origin: center; }
+.train-body rect:first-child { fill: var(--ink); stroke: #fff; stroke-width: 3; }
+.train-body .win { fill: #fff; } .train-body .lamp { fill: var(--amber); stroke: var(--ink); stroke-width: 1.5; }
+.train-marker.hidden { opacity: 0; }
+.train-marker.pop .train-body { animation: pop .45s cubic-bezier(.3, 1.6, .5, 1); }
+@keyframes pop { from { transform: scale(.3); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* hover preview */
+.tip { position: absolute; z-index: 5; width: 270px; padding: 12px 14px; background: var(--ink); color: #fff; border-radius: 12px; font-size: .95rem; line-height: 1.4; pointer-events: none; box-shadow: 0 8px 0 rgba(20, 32, 47, .15); }
+.tip[hidden] { display: none; }
+.tip b { display: block; font: 700 1.35rem var(--display); margin-bottom: 2px; }
+.tip small { display: block; margin-top: 6px; color: var(--amber); font-weight: 700; }
+
+/* Lines draw themselves in on load; stations and interchanges fade in after. */
+.t1 > path:not(.marks):not(.end-tick), .t2 > path:not(.marks):not(.end-tick), .t3 > path:not(.marks):not(.end-tick) { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.5s cubic-bezier(.5, 0, .2, 1) .2s forwards; }
+.t2 .marks, .t3 .marks, .t4, .end-tick { animation: fadein .6s ease-out 1.2s both; }
+.capsule, .stn, .pill, .barrier { animation: fadein .6s ease-out 1s both; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+
+/* 6. STATION TICKETS ------------------------------------------------------- */
+.stations { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow: auto; padding: 4px 4px 8px; margin: -4px; }
+.ticket { background: var(--card); border: 3px solid var(--ink); border-radius: 18px; overflow: hidden; position: relative; box-shadow: 0 6px 0 var(--ink); margin-bottom: 8px; }
+.ticket-bar { background: var(--ink); color: #fff; padding: 18px 22px 14px; display: flex; align-items: center; gap: 12px; }
+.ticket-bar h3 { font-size: 2.3rem; line-height: 1; }
+.copy { padding: 18px 22px 22px; border-top: 3px dashed var(--rule); position: relative; }
+.copy::before, .copy::after { content: ""; position: absolute; top: -13px; width: 22px; height: 22px; border-radius: 50%; background: var(--page); border: 3px solid var(--ink); }
+.copy::before { left: -13px; } .copy::after { right: -13px; }
+.copy p { margin: 0 0 12px; }
+.legend-tags { display: grid; grid-template-columns: auto 1fr; gap: 8px 10px; align-items: center; }
+
+.station { --route: var(--l1); }
+.station[data-route="2"] { --route: var(--l2); } .station[data-route="3"] { --route: var(--l3); } .station[data-route="4"] { --route: var(--l4); }
+.station summary { list-style: none; cursor: pointer; }
+.station summary::-webkit-details-marker { display: none; }
+.station h4 { font-size: 2.5rem; line-height: 1; }
+.station h4:focus { outline: none; }
+.station h4:focus-visible { outline: 3px solid #fff; outline-offset: 5px; border-radius: 4px; }
+.also { display: inline-flex; gap: 6px; margin-left: auto; }
+.badge { width: 26px; height: 26px; border-radius: 50%; display: inline-grid; place-items: center; background: #fff; }
+.badge svg { width: 14px; height: 14px; }
+.badge.l1 svg { fill: var(--l1); } .badge.l2 svg { fill: var(--l2); } .badge.l3 svg { fill: var(--l3); } .badge.l4 svg { fill: var(--l4); }
+.next-btn { width: 100%; justify-content: center; margin-top: 14px; }
+
+/* "You are here" line diagram inside each ticket: click a dot to jump to that stop */
+.strip { position: relative; display: flex; justify-content: space-between; align-items: center; margin: 22px 6px 6px; padding: 0; list-style: none; }
+.strip::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 7px; margin-top: -3.5px; border-radius: 4px; background: var(--route); }
+.station[data-route="4"] .strip::before { background: repeating-linear-gradient(90deg, var(--route) 0 14px, transparent 14px 22px); }
+.strip li { position: relative; }
+.strip a { display: block; width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 4px solid var(--ink); position: relative; transition: transform .15s; }
+.strip a:hover { transform: scale(1.25); }
+.strip .cur a { width: 30px; height: 30px; background: var(--amber); border-width: 5px; }
+.strip a::after { content: attr(data-name); position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); padding: 2px 9px; border-radius: 8px; background: var(--ink); color: #fff; font: 700 .85rem var(--body); white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .15s; }
+.strip a:hover::after, .strip a:focus-visible::after { opacity: 1; }
+.next-btn[hidden] { display: none; }
+.line-glyph { width: 20px; height: 20px; fill: currentColor; flex: none; }
+
+/* With JavaScript on desktop, only the chosen station is shown. */
+.js .stations .line-group > h3 { display: none; }
+.js .stations .station { display: none; }
+.js .stations .station.is-selected { display: block; }
+.js .stations[data-state="open"] .legend-ticket { display: none; }
+.js .stations .station summary { display: none; }
+@media (min-width: 981px) {
+  .js .station.is-selected summary { display: flex; align-items: center; gap: 12px; padding: 18px 22px 14px; background: var(--route); color: #fff; cursor: default; pointer-events: none; }
+  .js .station.is-selected .stop-dot { display: none; }
+}
+
+/* 7. SOURCES AND NOTES ----------------------------------------------------- */
+.takeaway { margin: 44px 0 20px; padding: clamp(22px, 3vw, 38px); display: grid; grid-template-columns: minmax(220px, 1fr) 2.4fr; gap: 12px 40px; align-items: start; background: #FFF4CF; border: 3px solid var(--ink); border-left: 16px solid var(--amber); border-radius: 18px; box-shadow: 0 6px 0 var(--ink); }
+.takeaway h2 { font-size: clamp(2.4rem, 5vw, 4.2rem); line-height: .95; }
+.takeaway p { margin: 0; font-size: clamp(1.2rem, 1.9vw, 1.65rem); line-height: 1.4; max-width: 46ch; }
+.takeaway .tag { font-size: .8rem; }
+.foot { display: flex; justify-content: center; gap: 14px; padding: 8px 0 56px; }
+.foot .dot { width: 34px; height: 34px; border-radius: 50%; }
+.d1 { background: var(--l3); } .d2 { background: #E08A00; } .d3 { background: var(--amber); } .d4 { background: var(--l2); } .d5 { background: #2EA3D8; } .d6 { background: var(--l1); } .d7 { background: var(--l4); }
+.sources, .made { margin: 36px 0; }
+.sources h2, .made h2 { font-size: 2rem; margin-bottom: 12px; }
+.sources ol { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 32px; counter-reset: src; }
+.sources li { counter-increment: src; display: flex; gap: 12px; align-items: baseline; }
+.sources li::before { content: counter(src); flex: none; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 50%; background: var(--ink); color: #fff; font: 700 .95rem var(--body); }
+.sources a { overflow-wrap: anywhere; }
+.made p { max-width: 74ch; }
+.ack { padding: 14px 18px; border: 2px dashed var(--rule); border-radius: 10px; background: #fff; }
+
+/* 8. RESPONSIVE ------------------------------------------------------------ */
+@media (max-width: 1180px) {
+  .map-layout { grid-template-columns: 1fr; }
+  .stations { position: static; max-height: none; overflow: visible; padding: 0; margin: 0; }
+}
+
+/* Phones and small tablets: the map swipes sideways and the stations become a vertical line diagram */
+@media (max-width: 980px) {
+  main, .masthead { width: min(100% - 28px, 720px); }
+  .masthead { grid-template-columns: 1fr; gap: 18px; }
+  .board, .trips, .tip, .route-divider { display: none; }
+  .takeaway { grid-template-columns: 1fr; }
+  .poster { overflow-x: auto; margin-bottom: 22px; border-radius: 16px; -webkit-overflow-scrolling: touch; }
+  .metro-map { min-width: 860px; }
+  .map-layout { display: block; }
+  .legend-ticket { margin-bottom: 22px; }
+  .line-group { position: relative; margin: 0 0 26px; padding-left: 30px; --route: var(--l1); }
+  .line-group.line-2 { --route: var(--l2); } .line-group.line-3 { --route: var(--l3); } .line-group.line-4 { --route: var(--l4); }
+  .line-group > h3, .js .stations .line-group > h3 { display: flex; align-items: center; gap: 10px; font-size: 1.9rem; margin: 0 0 10px; color: var(--route); }
+  .line-group::before { content: ""; position: absolute; left: 7px; top: 44px; bottom: 14px; width: 0; border-left: 10px solid var(--route); border-radius: 6px; }
+  .line-group.line-2::before { border-left-style: dotted; border-radius: 0; }
+  .line-group.line-3::before { border-left-style: double; border-left-width: 12px; }
+  .line-group.line-4::before { border-left-style: dashed; }
+  .js .stations .station { display: block; margin: 0 0 10px; }
+  .js .stations[data-state="open"] .legend-ticket { display: block; }
+  .station::before { content: ""; position: absolute; left: -33px; top: 18px; width: 18px; height: 18px; border-radius: 50%; background: #fff; border: 4px solid var(--ink); z-index: 2; }
+  .js .stations .station summary, .station summary { display: flex; align-items: center; gap: 10px; padding: 12px 16px; min-height: 56px; }
+  .station summary::after { content: "+"; font: 700 1.5rem var(--body); margin-left: 8px; }
+  .station details[open] summary::after { content: "–"; }
+  .station h4 { font-size: 1.9rem; }
+  .stop-dot { display: none; }
+  .next-btn { display: none; }
+  .sources ol { grid-template-columns: 1fr; }
+}
+@media (max-width: 420px) {
+  body { font-size: 17px; }
+  main, .masthead { width: calc(100% - 24px); }
+  .map-title { width: 100%; }
+}
+
+/* 9. MOTION ---------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .t1 > path:not(.marks):not(.end-tick), .t2 > path:not(.marks):not(.end-tick), .t3 > path:not(.marks):not(.end-tick) { stroke-dashoffset: 0; }
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}

@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The AI Line: a metro map explaining how AI works, what it gives us, and where it breaks.">
+  <title>The AI Line: a metro map of artificial intelligence</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="masthead">
+    <div class="brand">
+      <svg class="roundel" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="38" class="r-ring"/><rect x="2" y="39" width="96" height="22" rx="3" class="r-bar"/><text x="50" y="57" text-anchor="middle">AI</text></svg>
+      <div>
+        <h1>The AI Line</h1>
+      </div>
+    </div>
+    <p class="intro"><span class="tag fact"><i></i>Fact</span> AI is a machine-based system that infers, from the input it receives, how to generate outputs such as predictions, content, recommendations or decisions. <a class="ref" href="#source-3" aria-label="Source 3">[3]</a> Pick a station.</p>
+  </header>
+
+  <div class="route-divider" aria-hidden="true"><svg class="flourish" viewBox="0 0 1400 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><path class="fl l1" d="M0.0 5.0 L798.7 5.0 Q828.7 5.0 849.9 26.2 L851.5 27.8 Q872.7 49.0 902.7 49.0 L1380.0 49.0"/><circle class="fl-end l1" cx="1380.0" cy="49.0" r="8"/><path class="fl l2" d="M0.0 19.0 L792.9 19.0 Q822.9 19.0 844.1 40.2 L845.7 41.8 Q866.9 63.0 896.9 63.0 L1380.0 63.0"/><circle class="fl-end l2" cx="1380.0" cy="63.0" r="8"/><path class="fl l3" d="M0.0 33.0 L787.1 33.0 Q817.1 33.0 838.3 54.2 L839.9 55.8 Q861.1 77.0 891.1 77.0 L1380.0 77.0"/><circle class="fl-end l3" cx="1380.0" cy="77.0" r="8"/><path class="fl l4" d="M0.0 47.0 L781.3 47.0 Q811.3 47.0 832.5 68.2 L834.1 69.8 Q855.3 91.0 885.3 91.0 L1380.0 91.0"/><circle class="fl-end l4" cx="1380.0" cy="91.0" r="8"/></svg></div>
+
+  <main id="main">
+    <section class="map-section" aria-labelledby="map-h">
+      <div class="map-head">
+        <div class="map-title">
+          <h2 id="map-h">The map</h2>
+          <p class="map-note"><span class="link-key" aria-hidden="true"></span>White links join stations sharing one cause.</p>
+        </div>
+        <div class="trips" role="group" aria-label="Take a trip">
+          <span class="trips-label">Take a trip</span><button class="trip-btn" type="button" data-trip="l1" aria-pressed="false">How it works</button><button class="trip-btn" type="button" data-trip="l2" aria-pressed="false">What it gives us</button><button class="trip-btn" type="button" data-trip="l3" aria-pressed="false">What goes wrong</button><button class="trip-btn" type="button" data-trip="study" aria-pressed="false">Studying</button>
+        </div>
+      </div>
+
+      <div class="board" id="board" aria-hidden="true"><span class="board-k">Now</span><span class="board-v" id="board-now">Data</span><span class="board-k">Next</span><span class="board-v" id="board-next">Patterns</span></div>
+
+      <div class="map-layout">
+        <div class="poster" tabindex="0" role="region" aria-label="Metro map, scrolls sideways on small screens">
+<svg class="metro-map" viewBox="0 0 1240 520" role="img" aria-labelledby="map-title map-desc">
+<title id="map-title">The AI Line: a metro map of artificial intelligence</title>
+<desc id="map-desc">Three long lines and a dashed fourth. Line 1, how it works: Data, Patterns, Compute, Answer, Check. Line 2, what it gives us: Range, Study, Reach, Work, Health. Line 3, what goes wrong: Bias, Over-trust, Outages, Power, Fakes, Jobs. Line 4, under construction: Agents, Warning. A white link joins the stations that share one cause. Each station opens the same text found in the station list.</desc>
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" class="grid-dot"/></pattern><pattern id="hazard" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="14" height="14" class="hz-a"/><rect width="7" height="14" class="hz-b"/></pattern></defs>
+<rect class="poster-bg" width="1240" height="520"/><rect width="1240" height="520" fill="url(#grid)"/>
+<rect class="zone z0" x="100" y="62" width="200" height="420"/>
+<text class="zone-label" x="200" y="46" text-anchor="middle">Inputs</text>
+<rect class="zone z1" x="300" y="62" width="380" height="420"/>
+<text class="zone-label" x="490" y="46" text-anchor="middle">Machine</text>
+<rect class="zone z2" x="680" y="62" width="310" height="420"/>
+<text class="zone-label" x="835" y="46" text-anchor="middle">People</text>
+<rect class="zone z3" x="990" y="62" width="240" height="420"/>
+<text class="zone-label" x="1110" y="46" text-anchor="middle">Not yet built</text>
+<path class="journey" id="journey" pathLength="1" d=""/>
+<g class="track t1" data-line="1"><path pathLength="1" d="M211.0 140.0 L365.0 140.0 Q381.0 140.0 397.0 140.0 L535.0 140.0 Q551.0 140.0 567.0 140.0 L710.0 140.0 Q726.0 140.0 742.0 140.0 L906.0 140.0"/></g>
+<g class="track t2" data-line="2"><path pathLength="1" d="M211.0 255.0 L265.0 255.0 Q281.0 255.0 292.3 266.3 L299.7 273.7 Q311.0 285.0 327.0 285.0 L365.0 285.0 Q381.0 285.0 397.0 285.0 L435.0 285.0 Q451.0 285.0 462.3 273.7 L469.7 266.3 Q481.0 255.0 497.0 255.0 L535.0 255.0 Q551.0 255.0 567.0 255.0 L607.5 255.0 Q623.5 255.0 634.8 266.3 L642.2 273.7 Q653.5 285.0 669.5 285.0 L710.0 285.0 Q726.0 285.0 742.0 285.0 L785.0 285.0 Q801.0 285.0 812.3 273.7 L819.7 266.3 Q831.0 255.0 847.0 255.0 L890.0 255.0 Q906.0 255.0 922.0 255.0 L946.0 255.0"/><path class="marks" d="M211.0 255.0 L265.0 255.0 Q281.0 255.0 292.3 266.3 L299.7 273.7 Q311.0 285.0 327.0 285.0 L365.0 285.0 Q381.0 285.0 397.0 285.0 L435.0 285.0 Q451.0 285.0 462.3 273.7 L469.7 266.3 Q481.0 255.0 497.0 255.0 L535.0 255.0 Q551.0 255.0 567.0 255.0 L607.5 255.0 Q623.5 255.0 634.8 266.3 L642.2 273.7 Q653.5 285.0 669.5 285.0 L710.0 285.0 Q726.0 285.0 742.0 285.0 L785.0 285.0 Q801.0 285.0 812.3 273.7 L819.7 266.3 Q831.0 255.0 847.0 255.0 L890.0 255.0 Q906.0 255.0 922.0 255.0 L946.0 255.0"/><path class="end-tick" d="M946 239 V271"/></g>
+<g class="track t3" data-line="3"><path pathLength="1" d="M211.0 400.0 L365.0 400.0 Q381.0 400.0 397.0 400.0 L537.2 400.0 Q551.0 400.0 564.8 400.0 L564.8 400.0 Q578.5 400.0 588.2 409.7 L598.8 420.3 Q608.5 430.0 622.2 430.0 L622.2 430.0 Q636.0 430.0 649.8 430.0 L651.0 430.0 Q666.0 430.0 676.6 419.4 L685.4 410.6 Q696.0 400.0 711.0 400.0 L711.0 400.0 Q726.0 400.0 741.0 400.0 L890.0 400.0 Q906.0 400.0 922.0 400.0 L946.0 400.0"/><path class="marks" d="M211.0 400.0 L365.0 400.0 Q381.0 400.0 397.0 400.0 L537.2 400.0 Q551.0 400.0 564.8 400.0 L564.8 400.0 Q578.5 400.0 588.2 409.7 L598.8 420.3 Q608.5 430.0 622.2 430.0 L622.2 430.0 Q636.0 430.0 649.8 430.0 L651.0 430.0 Q666.0 430.0 676.6 419.4 L685.4 410.6 Q696.0 400.0 711.0 400.0 L711.0 400.0 Q726.0 400.0 741.0 400.0 L890.0 400.0 Q906.0 400.0 922.0 400.0 L946.0 400.0"/><path class="end-tick" d="M946 384 V416"/></g>
+<g class="track t4" data-line="4"><path d="M906.0 140.0 L990.0 140.0 Q1006.0 140.0 1017.3 151.3 L1036.0 170.0 Q1046.0 180.0 1056.0 190.0 L1066.0 200.0"/></g>
+<g class="barrier" aria-hidden="true"><rect x="1051" y="201" width="46" height="14" transform="rotate(45 1074 208)" fill="url(#hazard)"/></g>
+<g class="capsule" data-pair="data range bias"><path class="cap-out" d="M211 140 V400"/><path class="cap-in" d="M211 140 V400"/></g>
+<g class="capsule" data-pair="patterns study overtrust"><path class="cap-out" d="M381 140 V400"/><path class="cap-in" d="M381 140 V400"/></g>
+<g class="capsule" data-pair="compute reach outages"><path class="cap-out" d="M551 140 V400"/><path class="cap-in" d="M551 140 V400"/></g>
+<g class="capsule" data-pair="answer work fakes"><path class="cap-out" d="M726 140 V400"/><path class="cap-in" d="M726 140 V400"/></g>
+<g class="capsule" data-pair="check health jobs"><path class="cap-out" d="M906 140 V400"/><path class="cap-in" d="M906 140 V400"/></g>
+<g class="pill p1" data-line="1" role="button" tabindex="0" aria-pressed="false" aria-label="Show only the How it works line" transform="translate(12 140)"><rect x="0" y="-17" width="172" height="34" rx="17"/><g class="glyph" transform="translate(19 0)"><circle r="6"/></g><text x="35" y="6">How it works</text></g>
+<g class="pill p2" data-line="2" role="button" tabindex="0" aria-pressed="false" aria-label="Show only the What it gives us line" transform="translate(12 255)"><rect x="0" y="-17" width="172" height="34" rx="17"/><g class="glyph" transform="translate(19 0)"><rect x="-6" y="-6" width="12" height="12" rx="1.5"/></g><text x="35" y="6">What it gives us</text></g>
+<g class="pill p3" data-line="3" role="button" tabindex="0" aria-pressed="false" aria-label="Show only the What goes wrong line" transform="translate(12 400)"><rect x="0" y="-17" width="172" height="34" rx="17"/><g class="glyph" transform="translate(19 0)"><path d="M0 -7 7.5 6.5h-15z"/></g><text x="35" y="6">What goes wrong</text></g>
+<g class="pill p4" data-line="4" role="button" tabindex="0" aria-pressed="false" aria-label="Show only the Under construction line" transform="translate(996 332)"><rect x="0" y="-17" width="176" height="34" rx="17"/><g class="glyph" transform="translate(19 0)"><path d="M0 -8 8 0 0 8 -8 0z"/></g><text x="35" y="6">Under construction</text></g>
+<g class="train-marker" id="train" aria-hidden="true"><g class="train-body"><rect x="-26" y="-13" width="52" height="26" rx="9"/><rect class="win" x="-17" y="-7" width="9" height="9" rx="2"/><rect class="win" x="-4" y="-7" width="9" height="9" rx="2"/><rect class="win" x="9" y="-7" width="9" height="9" rx="2"/><path class="lamp" d="M26 -5 35 0 26 5z"/></g></g>
+<a class="stn is-inter" href="#data" data-station="data" data-lines="1 2 3" data-x="211" data-y="140" data-partners="range bias" aria-label="Data, How it works line, also on What it gives us, What goes wrong"><circle class="hit" cx="211" cy="140" r="30"/><circle class="dot l1" cx="211" cy="140" r="10"/><text x="211" y="110" text-anchor="middle">Data</text></a>
+<a class="stn is-inter" href="#patterns" data-station="patterns" data-lines="1 2 3" data-x="381" data-y="140" data-partners="study overtrust" aria-label="Patterns, How it works line, also on What it gives us, What goes wrong"><circle class="hit" cx="381" cy="140" r="30"/><circle class="dot l1" cx="381" cy="140" r="10"/><text x="381" y="110" text-anchor="middle">Patterns</text></a>
+<a class="stn is-inter" href="#compute" data-station="compute" data-lines="1 2 3" data-x="551" data-y="140" data-partners="reach outages" aria-label="Compute, How it works line, also on What it gives us, What goes wrong"><circle class="hit" cx="551" cy="140" r="30"/><circle class="dot l1" cx="551" cy="140" r="10"/><text x="551" y="110" text-anchor="middle">Compute</text></a>
+<a class="stn is-inter" href="#answer" data-station="answer" data-lines="1 2 3" data-x="726" data-y="140" data-partners="work fakes" aria-label="Answer, How it works line, also on What it gives us, What goes wrong"><circle class="hit" cx="726" cy="140" r="30"/><circle class="dot l1" cx="726" cy="140" r="10"/><text x="726" y="110" text-anchor="middle">Answer</text></a>
+<a class="stn is-inter" href="#check" data-station="check" data-lines="1 2 3 4" data-x="906" data-y="140" data-partners="health jobs agents" aria-label="Check, How it works line, also on What it gives us, What goes wrong, Under construction"><circle class="hit" cx="906" cy="140" r="30"/><circle class="dot l1" cx="906" cy="140" r="10"/><text x="906" y="110" text-anchor="middle">Check</text></a>
+<a class="stn is-inter" href="#range" data-station="range" data-lines="2 1 3" data-x="211" data-y="255" data-partners="data bias" aria-label="Range, What it gives us line, also on How it works, What goes wrong"><circle class="hit" cx="211" cy="255" r="30"/><circle class="dot l2" cx="211" cy="255" r="10"/><text x="237" y="237" text-anchor="start">Range</text></a>
+<a class="stn is-inter" href="#study" data-station="study" data-lines="2 1 3" data-x="381" data-y="285" data-partners="patterns overtrust" aria-label="Study, What it gives us line, also on How it works, What goes wrong"><circle class="hit" cx="381" cy="285" r="30"/><circle class="dot l2" cx="381" cy="285" r="10"/><text x="407" y="325" text-anchor="start">Study</text></a>
+<a class="stn is-inter" href="#reach" data-station="reach" data-lines="2 1 3" data-x="551" data-y="255" data-partners="compute outages" aria-label="Reach, What it gives us line, also on How it works, What goes wrong"><circle class="hit" cx="551" cy="255" r="30"/><circle class="dot l2" cx="551" cy="255" r="10"/><text x="577" y="237" text-anchor="start">Reach</text></a>
+<a class="stn is-inter" href="#work" data-station="work" data-lines="2 1 3" data-x="726" data-y="285" data-partners="answer fakes" aria-label="Work, What it gives us line, also on How it works, What goes wrong"><circle class="hit" cx="726" cy="285" r="30"/><circle class="dot l2" cx="726" cy="285" r="10"/><text x="752" y="325" text-anchor="start">Work</text></a>
+<a class="stn is-inter" href="#health" data-station="health" data-lines="2 1 3" data-x="906" data-y="255" data-partners="check jobs" aria-label="Health, What it gives us line, also on How it works, What goes wrong"><circle class="hit" cx="906" cy="255" r="30"/><circle class="dot l2" cx="906" cy="255" r="10"/><text x="932" y="225" text-anchor="start">Health</text></a>
+<a class="stn is-inter" href="#bias" data-station="bias" data-lines="3 1 2" data-x="211" data-y="400" data-partners="data range" aria-label="Bias, What goes wrong line, also on How it works, What it gives us"><circle class="hit" cx="211" cy="400" r="30"/><circle class="dot l3" cx="211" cy="400" r="10"/><text x="211" y="444" text-anchor="middle">Bias</text></a>
+<a class="stn is-inter" href="#overtrust" data-station="overtrust" data-lines="3 1 2" data-x="381" data-y="400" data-partners="patterns study" aria-label="Over-trust, What goes wrong line, also on How it works, What it gives us"><circle class="hit" cx="381" cy="400" r="30"/><circle class="dot l3" cx="381" cy="400" r="10"/><text x="381" y="444" text-anchor="middle">Over-trust</text></a>
+<a class="stn is-inter" href="#outages" data-station="outages" data-lines="3 1 2" data-x="551" data-y="400" data-partners="compute reach" aria-label="Outages, What goes wrong line, also on How it works, What it gives us"><circle class="hit" cx="551" cy="400" r="30"/><circle class="dot l3" cx="551" cy="400" r="10"/><text x="545" y="444" text-anchor="middle">Outages</text></a>
+<a class="stn" href="#power" data-station="power" data-lines="3" data-x="636" data-y="430" data-partners="" aria-label="Power, What goes wrong line"><circle class="hit" cx="636" cy="430" r="30"/><circle class="ring" cx="636" cy="430" r="13"/><text x="636" y="474" text-anchor="middle">Power</text></a>
+<a class="stn is-inter" href="#fakes" data-station="fakes" data-lines="3 1 2" data-x="726" data-y="400" data-partners="answer work" aria-label="Fakes, What goes wrong line, also on How it works, What it gives us"><circle class="hit" cx="726" cy="400" r="30"/><circle class="dot l3" cx="726" cy="400" r="10"/><text x="726" y="444" text-anchor="middle">Fakes</text></a>
+<a class="stn is-inter" href="#jobs" data-station="jobs" data-lines="3 1 2" data-x="906" data-y="400" data-partners="check health" aria-label="Jobs, What goes wrong line, also on How it works, What it gives us"><circle class="hit" cx="906" cy="400" r="30"/><circle class="dot l3" cx="906" cy="400" r="10"/><text x="906" y="444" text-anchor="middle">Jobs</text></a>
+<a class="stn is-inter" href="#agents" data-station="agents" data-lines="4" data-x="1006" data-y="140" data-partners="check" aria-label="Agents, Under construction line"><circle class="hit" cx="1006" cy="140" r="30"/><circle class="dot l4" cx="1006" cy="140" r="10"/><text x="1006" y="110" text-anchor="middle">Agents</text></a>
+<a class="stn" href="#warning" data-station="warning" data-lines="4" data-x="1046" data-y="180" data-partners="" aria-label="Warning, Under construction line"><circle class="hit" cx="1046" cy="180" r="30"/><circle class="ring" cx="1046" cy="180" r="13"/><text x="1068" y="166" text-anchor="start">Warning</text></a>
+<g class="legend" transform="translate(900 494)"><rect class="walkway-demo" x="0" y="-9" width="34" height="18" rx="9"/><text x="46" y="5">Same cause</text></g>
+</svg>
+          <div class="tip" id="tip" role="presentation" hidden></div>
+        </div>
+
+        <section class="stations" id="stations" aria-label="Stations">
+          <article class="ticket legend-ticket" id="legend">
+            <div class="ticket-bar idle"><h3>Read the map</h3></div>
+            <div class="copy">
+              <div class="legend-tags"><span class="tag fact"><i></i>Fact</span> checked against a source <span class="tag view"><i></i>My view</span> my interpretation <span class="tag pred"><i></i>Prediction</span> a forecast</div>
+            </div>
+          </article>
+
+    <div class="line-group line-1" data-line="1">
+      <h3><svg class="line-glyph" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6"/></svg><span>How it works</span></h3>
+      <div class="station-list">
+      <article class="ticket station" id="data" data-lines="1 2 3" data-route="1">
+        <details open>
+          <summary><span class="stop-dot" aria-hidden="true"></span><h4 tabindex="-1">Data</h4><span class="also"><span class="badge l2" role="img" aria-label="Also on What it gives us"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="1.5"/></svg></span><span class="badge l3" role="img" aria-label="Also on What goes wrong"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5 15 14H1z"/></svg></span></span></summary>
+          <div class="copy"><p><span class="tag fact"><i></i>Fact</span> AI learns from text scraped from the internet, which can include personal details. Researchers got GPT-2 to repeat hundreds of training examples word for word, including real names, phone numbers and email addresses. <a class="ref" href="#source-4" aria-label="Source 4">[4]</a></p><p><span class="tag view"><i></i>My view</span> So anything personal on the open web could end up in a model.</p><ol class="strip" aria-label="Stops on this line"><li class=cur><a href="#data" data-name="Data" aria-label="Data" aria-current=true></a></li><li><a href="#patterns" data-name="Patterns" aria-label="Patterns"></a></li><li><a href="#compute" data-name="Compute" aria-label="Compute"></a></li><li><a href="#answer" data-name="Answer" aria-label="Answer"></a></li><li><a href="#check" data-name="Check" aria-label="Check"></a></li></ol></div>
+        </details>
+      </article>
+      <article class="ticket station" id="patterns" data-lines="1 2 3" data-route="1">
+        <details open>
+          <summary><span class="stop-dot" aria-hidden="true"></span><h4 tabindex="-1">Patterns</h4><span class="also"><span class="badge l2" role="img" aria-label="Also on What it gives us"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="1.5"/></svg></span><span class="badge l3" role="img" aria-label="Also on What goes wrong"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5 15 14H1z"/></svg></span></span></summary>
+          <div class="copy"><p><span class="tag fact"><i></i>Fact</span> Models find statistical patterns; they don’t look facts up. Their skills are “jagged”: strong at hard tasks, shaky at simple ones, still prone to false statements. <a class="ref" href="#source-1" aria-label="Source 1">[1]</a></p><p><span class="tag view"><i></i>My view</span> It can sound completely sure and still be wrong.</p><ol class="strip" aria-label="Stops on this line"><li><a href="#data" data-name="Data" aria-label="Data"></a></li><li class=cur><a href="#patterns" data-name="Patterns" aria-label="Patterns" aria-current=true></a></li><li><a href="#compute" data-name="Compute" aria-label="Compute"></a></li><li><a href="#answer" data-name="Answer" aria-label="Answer"></a></li><li><a href="#check" data-name="Check" aria-label="Check"></a></li></ol></div>
+        </details>
+      </article>
+      <article class="ticket station" id="compute" data-lines="1 2 3" data-route="1">
+        <details open>
+          <summary><span class="stop-dot" aria-hidden="true"></span><h4 tabindex="-1">Compute</h4><span class="also"><span class="badge l2" role="img" aria-label="Also on What it gives us"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="1.5"/></svg></span><span class="badge l3" role="img" aria-label="Also on What goes wrong"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5 15 14H1z"/></svg></span></span></summary>
+          <div class="copy"><p><span class="tag fact"><i></i>Fact</span> Every answer is calculated in a data center: racks of chips, cooling and a power bill. <a class="ref" href="#source-2" aria-label="Source 2">[2]</a></p><ol class="strip" aria-label="Stops on this line"><li><a href="#data" data-name="Data" aria-label="Data"></a></li><li><a href="#patterns" data-name="Patterns" aria-label="Patterns"></a></li><li class=cur><a href="#compute" data-name="Compute" aria-label="Compute" aria-current=true></a></li><li><a href="#answer" data-name="Answer" aria-label="Answer"></a></li><li><a href="#check" data-name="Check" aria-label="Check"></a></li></ol></div>
+        </details>
+      </article>
+      <article class="ticket station" id="answer" data-lines="1 2 3" data-route="1">
+        <details open>
+          <summary><span class="stop-dot" aria-hidden="true"></span><h4 tabindex="-1">Answer</h4><span class="also"><span class="badge l2" role="img" aria-label="Also on What it gives us"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="1.5"/></svg></span><span class="badge l3" role="img" aria-label="Also on What goes wrong"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5 15 14H1z"/></svg></span></span></summary>
+          <div class="copy"><p><span class="tag fact"><i></i>Fact</span> The output reaches a person or program. Text arrives as a draft; images, voices and video can arrive as convincing fakes. In one study, listeners mistook AI voices for real speakers 80% of the time. <a class="ref" href="#source-1" aria-label="Source 1">[1]</a></p><p><span class="tag view"><i></i>My view</span> This is where a model’s guess becomes someone’s decision.</p><ol class="strip" aria-label="Stops on this line"><li><a href="#data" data-name="Data" aria-label="Data"></a></li><li><a href="#patterns" data-name="Patterns" aria-label="Patterns"></a></li><li><a href="#compute" data-name="Compute" aria-label="Compute"></a></li><li class=cur><a href="#answer" data-name="Answer" aria-label="Answer" aria-current=true></a></li><li><a href="#check" data-name="Check" aria-label="Check"></a></li></ol></div>
+        </details>
+      </article>
+      <article class="ticket station" id="check" data-lines="1 2 3 4" data-route="1">
+        <details open>
+          <summary><span class="stop-dot" aria-hidden="true"></span><h4 tabindex="-1">Check</h4><span class="also"><span class="badge l2" role="img" aria-label="Also on What it gives us"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="1.5"/></svg></span><span class="badge l3" role="img" aria-label="Also on What goes wrong"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5 15 14H1z"/></svg></span><span class="badge l4" role="img" aria-label="Also on Under construction"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 .8 15.2 8 8 15.2.8 8z"/></svg></span></span></summary>
+          <div class="copy"><p><span class="tag fact"><i></i>Fact</span> The last station is a person. The AI Safety Report finds no single safeguard is enough and recommends layers, including human oversight. <a class="ref" href="#source-1" aria-label="Source 1">[1]</a></p><p><span class="tag view"><i></i>My view</span> AI will get things wrong. What matters is whether someone checks.</p><ol class="strip" aria-label="Stops on this line"><li><a href="#data" data-name="Data" aria-label="Data"></a></li><li><a href="#patterns" data-name="Patterns" aria-label="Patterns"></a></li><li><a href="#compute" data-name="Compute" aria-label="Compute"></a></li><li><a href="#answer" data-name="Answer" aria-label="Answer"></a></li><li class=cur><a href="#check" data-name="Check" aria-label="Check" aria-current=true></a></li></ol></div>
+        </details>
+      </article>
+      </div>
+    </div>
+    <div class="line-group line-2" data-line="2">
+      <h3><svg class="line-glyph" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="1.5"/></svg><span>What it gives us</span></h3>
+      <div class="station-list">
+      <article class="ticket station" id="range" data-lines="2 1 3" data-route="2">
+        <details open>
+          <summary><span class="stop-dot" aria-hidden="true"></span><h4 tabindex="-1">Range</h4><span class="also"><span class="badge l1" role="img" aria-label="Also on How it works"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6"/></svg></span><span class="badge l3" role="img" aria-label="Also on What goes wrong"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5 15 14H1z"/></svg></span></span></summary>
+          <div class="copy"><p><span class="tag fact"><i></i>Fact</span> General-purpose AI can converse fluently in many languages, write code, create images and solve graduate-level science problems. <a class="ref" href="#source-1" aria-label="Source 1">[1]</a></p><ol class="strip" aria-label="Stops on this line"><li class=cur><a href="#range" data-name="Range" aria-label="Range" aria-current=true></a></li><li><a href="#study" data-name="Study" aria-label="Study"></a></li><li><a href="#reach" data-name="Reach" aria-label="Reach"></a></li><li><a href="#work" data-name="Work" aria-label="Work"></a></li><li><a href="#health" data-name="Health" aria-label="Health"></a></li></ol></div>
+        </details>
+      </article>
+      <article class="ticket station" id="study" data-lines="2 1 3" data-route="2">
+        <details open>
+          <summary><span class="stop-dot" aria-hidden="true"></span><h4 tabindex="-1">Study</h4><span class="also"><span class="badge l1" role="img" aria-label="Also on How it works"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6"/></svg></span><span class="badge l3" role="img" aria-label="Also on What goes wrong"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5 15 14H1z"/></svg></span></span></summary>
+          <div class="copy"><p><span class="tag fact"><i></i>Fact</span> In a Harvard physics trial, a custom AI tutor more than doubled learning gains versus an active-learning class, in less time. <a class="ref" href="#source-6" aria-label="Source 6">[6]</a></p><p><span class="tag view"><i></i>My view</span> It’s good at explaining things, but I still check the answer myself.</p><ol class="strip" aria-label="Stops on this line"><li><a href="#range" data-name="Range" aria-label="Range"></a></li><li class=cur><a href="#study" data-name="Study" aria-label="Study" aria-current=true></a></li><li><a href="#reach" data-name="Reach" aria-label="Reach"></a></li><li><a href="#work" data-name="Work" aria-label="Work"></a></li><li><a href="#health" data-name="Health" aria-label="Health"></a></li></ol></div>
+        </details>
+      </article>
+      <article class="ticket station" id="reach" data-lines="2 1 3" data-route="2">
+        <details open>
+          <summary><span class="stop-dot" aria-hidden="true"></span><h4 tabindex="-1">Reach</h4><span class="also"><span class="badge l1" role="img" aria-label="Also on How it works"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6"/></svg></span><span class="badge l3" role="img" aria-label="Also on What goes wrong"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5 15 14H1z"/></svg></span></span></summary>
+          <div class="copy"><p><span class="tag fact"><i></i>Fact</span> AI has spread faster than the personal computer: at least 700 million people use leading systems weekly, though likely under 10% across much of Africa, Asia and Latin America. <a class="ref" href="#source-1" aria-label="Source 1">[1]</a></p><p><span class="tag view"><i></i>My view</span> The more people rely on it, the more it hurts when it fails.</p><ol class="strip" aria-label="Stops on this line"><li><a href="#range" data-name="Range" aria-label="Range"></a></li><li><a href="#study" data-name="Study" aria-label="Study"></a></li><li class=cur><a href="#reach" data-name="Reach" aria-label="Reach" aria-current=true></a></li><li><a href="#work" data-name="Work" aria-label="Work"></a></li><li><a href="#health" data-name="Health" aria-label="Health"></a></li></ol></div>
+        </details>
+      </article>
+      <article class="ticket station" id="work" data-lines="2 1 3" data-route="2">
+        <details open>
+          <summary><span class="stop-dot" aria-hidden="true"></span><h4 tabindex="-1">Work</h4><span class="also"><span class="badge l1" role="img" aria-label="Also on How it works"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6"/></svg></span><span class="badge l3" role="img" aria-label="Also on What goes wrong"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5 15 14H1z"/></svg></span></span></summary>
+          <div class="copy"><p><span class="tag fact"><i></i>Fact</span> In a study of over 5,000 support agents, an AI assistant raised issues resolved per hour by about 15%. Gains went mostly to newer staff; the most experienced saw small quality dips. <a class="ref" href="#source-5" aria-label="Source 5">[5]</a></p><ol class="strip" aria-label="Stops on this line"><li><a href="#range" data-name="Range" aria-label="Range"></a></li><li><a href="#study" data-name="Study" aria-label="Study"></a></li><li><a href="#reach" data-name="Reach" aria-label="Reach"></a></li><li class=cur><a href="#work" data-name="Work" aria-label="Work" aria-current=true></a></li><li><a href="#health" data-name="Health" aria-label="Health"></a></li></ol></div>
+        </details>
+      </article>
+      <article class="ticket station" id="health" data-lines="2 1 3" data-route="2">
+        <details open>
+          <summary><span class="stop-dot" aria-hidden="true"></span><h4 tabindex="-1">Health</h4><span class="also"><span class="badge l1" role="img" aria-label="Also on How it works"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6"/></svg></span><span class="badge l3" role="img" aria-label="Also on What goes wrong"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5 15 14H1z"/></svg></span></span></summary>
+          <div class="copy"><p><span class="tag fact"><i></i>Fact</span> In a Swedish trial of about 106,000 women, AI-supported mammography screening detected 29% more cancers and cut radiologists’ reading workload by 44%, without more false positives. Radiologists still read the scans. <a class="ref" href="#source-7" aria-label="Source 7">[7]</a></p><p><span class="tag view"><i></i>My view</span> The best benefit keeps a person in charge.</p><ol class="strip" aria-label="Stops on this line"><li><a href="#range" data-name="Range" aria-label="Range"></a></li><li><a href="#study" data-name="Study" aria-label="Study"></a></li><li><a href="#reach" data-name="Reach" aria-label="Reach"></a></li><li><a href="#work" data-name="Work" aria-label="Work"></a></li><li class=cur><a href="#health" data-name="Health" aria-label="Health" aria-current=true></a></li></ol></div>
+        </details>
+      </article>
+      </div>
+    </div>
+    <div class="line-group line-3" data-line="3">
+      <h3><svg class="line-glyph" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5 15 14H1z"/></svg><span>What goes wrong</span></h3>
+      <div class="station-list">
+      <article class="ticket station" id="bias" data-lines="3 1 2" data-route="3">
+        <details open>
+          <summary><span class="stop-dot" aria-hidden="true"></span><h4 tabindex="-1">Bias</h4><span class="also"><span class="badge l1" role="img" aria-label="Also on How it works"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6"/></svg></span><span class="badge l2" role="img" aria-label="Also on What it gives us"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="1.5"/></svg></span></span></summary>
+          <div class="copy"><p><span class="tag fact"><i></i>Fact</span> Models perform worse where training data is thin: one study found 79% accuracy on questions about US culture but 12% on Ethiopian culture. <a class="ref" href="#source-1" aria-label="Source 1">[1]</a></p><ol class="strip" aria-label="Stops on this line"><li class=cur><a href="#bias" data-name="Bias" aria-label="Bias" aria-current=true></a></li><li><a href="#overtrust" data-name="Over-trust" aria-label="Over-trust"></a></li><li><a href="#outages" data-name="Outages" aria-label="Outages"></a></li><li><a href="#power" data-name="Power" aria-label="Power"></a></li><li><a href="#fakes" data-name="Fakes" aria-label="Fakes"></a></li><li><a href="#jobs" data-name="Jobs" aria-label="Jobs"></a></li></ol></div>
+        </details>
+      </article>
+      <article class="ticket station" id="overtrust" data-lines="3 1 2" data-route="3">
+        <details open>
+          <summary><span class="stop-dot" aria-hidden="true"></span><h4 tabindex="-1">Over-trust</h4><span class="also"><span class="badge l1" role="img" aria-label="Also on How it works"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6"/></svg></span><span class="badge l2" role="img" aria-label="Also on What it gives us"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="1.5"/></svg></span></span></summary>
+          <div class="copy"><p><span class="tag fact"><i></i>Fact</span> People over-trust, too: in an experiment with 2,784 participants, they were less likely to correct a wrong AI suggestion when fixing it took more effort. <a class="ref" href="#source-1" aria-label="Source 1">[1]</a></p><p><span class="tag view"><i></i>My view</span> The weak link is often the human who stopped checking.</p><ol class="strip" aria-label="Stops on this line"><li><a href="#bias" data-name="Bias" aria-label="Bias"></a></li><li class=cur><a href="#overtrust" data-name="Over-trust" aria-label="Over-trust" aria-current=true></a></li><li><a href="#outages" data-name="Outages" aria-label="Outages"></a></li><li><a href="#power" data-name="Power" aria-label="Power"></a></li><li><a href="#fakes" data-name="Fakes" aria-label="Fakes"></a></li><li><a href="#jobs" data-name="Jobs" aria-label="Jobs"></a></li></ol></div>
+        </details>
+      </article>
+      <article class="ticket station" id="outages" data-lines="3 1 2" data-route="3">
+        <details open>
+          <summary><span class="stop-dot" aria-hidden="true"></span><h4 tabindex="-1">Outages</h4><span class="also"><span class="badge l1" role="img" aria-label="Also on How it works"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6"/></svg></span><span class="badge l2" role="img" aria-label="Also on What it gives us"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="1.5"/></svg></span></span></summary>
+          <div class="copy"><p><span class="tag fact"><i></i>Fact</span> In October 2025, a race condition in Amazon’s automated DNS system left a key database endpoint empty; dependent services failed for hours. <a class="ref" href="#source-9" aria-label="Source 9">[9]</a></p><p><span class="tag view"><i></i>My view</span> Not an AI bug: a lesson in dependence.</p><ol class="strip" aria-label="Stops on this line"><li><a href="#bias" data-name="Bias" aria-label="Bias"></a></li><li><a href="#overtrust" data-name="Over-trust" aria-label="Over-trust"></a></li><li class=cur><a href="#outages" data-name="Outages" aria-label="Outages" aria-current=true></a></li><li><a href="#power" data-name="Power" aria-label="Power"></a></li><li><a href="#fakes" data-name="Fakes" aria-label="Fakes"></a></li><li><a href="#jobs" data-name="Jobs" aria-label="Jobs"></a></li></ol></div>
+        </details>
+      </article>
+      <article class="ticket station" id="power" data-lines="3" data-route="3">
+        <details open>
+          <summary><span class="stop-dot" aria-hidden="true"></span><h4 tabindex="-1">Power</h4></summary>
+          <div class="copy"><p><span class="tag fact"><i></i>Fact</span> Data centers used about 1.5% of the world’s electricity in 2024. The IEA projects demand will more than double by 2030, with AI the biggest driver. <a class="ref" href="#source-2" aria-label="Source 2">[2]</a></p><ol class="strip" aria-label="Stops on this line"><li><a href="#bias" data-name="Bias" aria-label="Bias"></a></li><li><a href="#overtrust" data-name="Over-trust" aria-label="Over-trust"></a></li><li><a href="#outages" data-name="Outages" aria-label="Outages"></a></li><li class=cur><a href="#power" data-name="Power" aria-label="Power" aria-current=true></a></li><li><a href="#fakes" data-name="Fakes" aria-label="Fakes"></a></li><li><a href="#jobs" data-name="Jobs" aria-label="Jobs"></a></li></ol></div>
+        </details>
+      </article>
+      <article class="ticket station" id="fakes" data-lines="3 1 2" data-route="3">
+        <details open>
+          <summary><span class="stop-dot" aria-hidden="true"></span><h4 tabindex="-1">Fakes</h4><span class="also"><span class="badge l1" role="img" aria-label="Also on How it works"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6"/></svg></span><span class="badge l2" role="img" aria-label="Also on What it gives us"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="1.5"/></svg></span></span></summary>
+          <div class="copy"><p><span class="tag fact"><i></i>Fact</span> In 2024, a finance worker at engineering firm Arup joined a video call with an apparent CFO and colleagues. Police said the others were deepfakes; about US$25.6 million left in 15 transfers. <a class="ref" href="#source-8" aria-label="Source 8">[8]</a></p><p><span class="tag view"><i></i>My view</span> Confirm money requests on a second channel you already know.</p><ol class="strip" aria-label="Stops on this line"><li><a href="#bias" data-name="Bias" aria-label="Bias"></a></li><li><a href="#overtrust" data-name="Over-trust" aria-label="Over-trust"></a></li><li><a href="#outages" data-name="Outages" aria-label="Outages"></a></li><li><a href="#power" data-name="Power" aria-label="Power"></a></li><li class=cur><a href="#fakes" data-name="Fakes" aria-label="Fakes" aria-current=true></a></li><li><a href="#jobs" data-name="Jobs" aria-label="Jobs"></a></li></ol></div>
+        </details>
+      </article>
+      <article class="ticket station" id="jobs" data-lines="3 1 2" data-route="3">
+        <details open>
+          <summary><span class="stop-dot" aria-hidden="true"></span><h4 tabindex="-1">Jobs</h4><span class="also"><span class="badge l1" role="img" aria-label="Also on How it works"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6"/></svg></span><span class="badge l2" role="img" aria-label="Also on What it gives us"><svg class="badge-shape" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="1.5"/></svg></span></span></summary>
+          <div class="copy"><p><span class="tag fact"><i></i>Fact</span> Studies find no overall employment effect yet, but falling employment for early-career workers in the most AI-exposed jobs, like software engineering. <a class="ref" href="#source-1" aria-label="Source 1">[1]</a></p><p><span class="tag view"><i></i>My view</span> Entry-level work may feel it first.</p><ol class="strip" aria-label="Stops on this line"><li><a href="#bias" data-name="Bias" aria-label="Bias"></a></li><li><a href="#overtrust" data-name="Over-trust" aria-label="Over-trust"></a></li><li><a href="#outages" data-name="Outages" aria-label="Outages"></a></li><li><a href="#power" data-name="Power" aria-label="Power"></a></li><li><a href="#fakes" data-name="Fakes" aria-label="Fakes"></a></li><li class=cur><a href="#jobs" data-name="Jobs" aria-label="Jobs" aria-current=true></a></li></ol></div>
+        </details>
+      </article>
+      </div>
+    </div>
+    <div class="line-group line-4" data-line="4">
+      <h3><svg class="line-glyph" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 .8 15.2 8 8 15.2.8 8z"/></svg><span>Under construction</span></h3>
+      <div class="station-list">
+      <article class="ticket station" id="agents" data-lines="4" data-route="4">
+        <details open>
+          <summary><span class="stop-dot" aria-hidden="true"></span><h4 tabindex="-1">Agents</h4></summary>
+          <div class="copy"><p><span class="tag fact"><i></i>Fact</span> Agents are AI systems that act, not just answer. Humans get fewer chances to step in when one fails, and the length of software tasks agents can finish has doubled about every seven months. <a class="ref" href="#source-1" aria-label="Source 1">[1]</a></p><p><span class="tag pred"><i></i>Prediction</span> If that continues, multi-day tasks could be automated by 2030, though that is unclear. <a class="ref" href="#source-1" aria-label="Source 1">[1]</a></p><ol class="strip" aria-label="Stops on this line"><li class=cur><a href="#agents" data-name="Agents" aria-label="Agents" aria-current=true></a></li><li><a href="#warning" data-name="Warning" aria-label="Warning"></a></li></ol></div>
+        </details>
+      </article>
+      <article class="ticket station" id="warning" data-lines="4" data-route="4">
+        <details open>
+          <summary><span class="stop-dot" aria-hidden="true"></span><h4 tabindex="-1">Warning</h4></summary>
+          <div class="copy"><p><span class="tag fact"><i></i>Fact</span> Some researchers think losing control of AI is a serious possibility, even an extinction risk; others think it implausible. Today’s systems show early warning signs, not those abilities. <a class="ref" href="#source-1" aria-label="Source 1">[1]</a></p><p><span class="tag view"><i></i>My view</span> Real harms now, uncertain ones later.</p><ol class="strip" aria-label="Stops on this line"><li><a href="#agents" data-name="Agents" aria-label="Agents"></a></li><li class=cur><a href="#warning" data-name="Warning" aria-label="Warning" aria-current=true></a></li></ol></div>
+        </details>
+      </article>
+      </div>
+    </div>
+          <button class="next-btn" id="next" type="button" hidden>Next stop</button>
+        </section>
+      </div>
+    </section>
+
+    <section class="takeaway" aria-labelledby="take-h">
+      <h2 id="take-h">The takeaway</h2>
+      <p><span class="tag view"><i></i>My view</span> AI’s strengths and weaknesses come from the same place. It predicts what sounds likely, so it drafts fast and still gets things wrong. It reaches millions, so it helps many and fails for many. Use it for a first draft, then check it yourself.</p>
+    </section>
+
+    <section class="sources" aria-labelledby="src-h">
+      <h2 id="src-h">Sources</h2>
+      <ol>
+<li id="source-1"><a href="https://internationalaisafetyreport.org/publication/2026-report-extended-summary-policymakers">International AI Safety Report 2026</a></li>
+<li id="source-2"><a href="https://www.iea.org/reports/energy-and-ai">IEA, Energy and AI</a></li>
+<li id="source-3"><a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-3">EU AI Act, Article 3</a></li>
+<li id="source-4"><a href="https://arxiv.org/abs/2012.07805">Carlini, Extracting Training Data</a></li>
+<li id="source-5"><a href="https://doi.org/10.1093/qje/qjae044">Brynjolfsson, Generative AI at Work</a></li>
+<li id="source-6"><a href="https://doi.org/10.1038/s41598-025-97652-6">Kestin, AI tutoring trial</a></li>
+<li id="source-7"><a href="https://pubmed.ncbi.nlm.nih.gov/39904652/">Hernström, MASAI mammography trial</a></li>
+<li id="source-8"><a href="https://abc17news.com/money/cnn-business-consumer/2024/05/16/british-engineering-giant-arup-revealed-as-25-million-deepfake-scam-victim/">CNN, Arup deepfake fraud</a></li>
+<li id="source-9"><a href="https://aws.amazon.com/message/101925">AWS, DynamoDB disruption summary</a></li>
+      </ol>
+    </section>
+
+    <section class="made" aria-labelledby="made-h">
+      <h2 id="made-h">How this site was made</h2>
+      <p>AI is a chain of data, patterns, machines and people, so I drew a metro network: lines for themes, stations for ideas, white links for shared causes. Plain HTML, CSS and a little JavaScript; the text works without it. After testing, I <!-- STUDENT: replace with one real change you made after testing --> [describe one real change you made].</p>
+      <p class="ack"><strong>AI acknowledgement:</strong> I acknowledge the use of Claude (Anthropic) to brainstorm, research sources and redesign the layout, and ChatGPT (OpenAI) to draft the first code. I checked each fact against the sources, edited the writing and tested the site. The final work is my responsibility.</p>
+    </section>
+  </main>
+  <footer class="foot" aria-hidden="true"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="dot d4"></span><span class="dot d5"></span><span class="dot d6"></span><span class="dot d7"></span></footer>
+  <script type="application/json" id="trips-data">{"l1": ["data", "patterns", "compute", "answer", "check", "agents", "warning"], "l2": ["range", [281.0, 255], [311.0, 285], "study", [451.0, 285], [481.0, 255], "reach", [623.5, 255], [653.5, 285], "work", [801.0, 285], [831.0, 255], "health"], "l3": ["bias", "overtrust", "outages", [578.5, 400], [608.5, 430], "power", [666.0, 430], [696.0, 400], "fakes", "jobs"], "study": ["data", "patterns", "study", "overtrust"]}</script>
+</body>
+</html>
